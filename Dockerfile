@@ -34,5 +34,5 @@ EXPOSE 80
 # O CapRover injeta a porta em $PORT, então use-a para ser flexível.
 CMD ["serve", "-s", "dist", "-l", "tcp://$HOST:$PORT"]
 
-# Ou se você não quiser usar $HOST:$PORT e preferir apenas a porta:
+# Ou se você não quiser usar $HOST:$PORT e preferir apenas a porta: SO PRA MUDAR ALGO
 # CMD ["serve", "-s", "dist", "-p", "80"]
