@@ -1,35 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Backgroud from './assets/backgroud.jpg';
-
-// --- ÍCONES (Simulação da biblioteca 'lucide-react') ---
-const Sparkles = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275z"/>
-    <path d="M5 3v4"/>
-    <path d="M19 17v4"/>
-    <path d="M3 5h4"/>
-    <path d="M17 19h4"/>
-  </svg>
-);
-
-const LoaderCircle = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-  </svg>
-);
-
-const ChevronLeft = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="m15 18-6-6 6-6"/>
-    </svg>
-);
-
-const ChevronRight = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="m9 18 6-6-6-6"/>
-    </svg>
-);
-
+import { Sparkles, LoaderCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 
 // --- DADOS DA PÁGINA ---
 // Altere as informações aqui para personalizar a página.
