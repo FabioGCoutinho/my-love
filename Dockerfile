@@ -20,4 +20,5 @@ RUN npm run build
 EXPOSE 4173
 
 # Comando para rodar a aplicação
-CMD ["npm", "preview"]
+RUN npm run preview
+#CMD ["npm", "preview"]
