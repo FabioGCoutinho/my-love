@@ -13,9 +13,6 @@ export default defineConfig({
       host: 'laylaketna.myfinan.com.br', // Use seu domínio real aqui
       protocol: 'wss', // Use wss para WebSocket Secure
     },
-    fs: {
-      cachedirectory: 'node_modules/.vite', // Para evitar problemas de permissão em alguns ambientes
-    },
     cors: true, // Habilita CORS para todas as origens (opcional, dependendo da sua necessidade)
     // --- O mais importante para o erro "Blocked request" ---
     fs: {
