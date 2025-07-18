@@ -10,7 +10,7 @@ export default defineConfig({
     port: 5173,      // Opcional, mas boa prática para deixar explícito
     hmr: {
       clientPort: 443, // Importante para HTTPS/WSS no CapRover
-      // host: 'laylaketna.myfinan.com.br', // Use seu domínio real aqui
+      host: 'laylaketna.myfinan.com.br', // Use seu domínio real aqui
       protocol: 'wss', // Use wss para WebSocket Secure
     },
     cors: true, // Habilita CORS para todas as origens (opcional, dependendo da sua necessidade)
