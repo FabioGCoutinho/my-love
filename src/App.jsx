@@ -9,13 +9,13 @@ const pageData = {
   nomeExEsposa: "Layla Ketna",
   titulo: "Para você [Nome], com todo o meu coração",
   textoIntroducao: "Nossas vidas tomaram rumos diferentes, mas o carinho, o respeito e a história que construímos juntos jamais serão esquecidos. Esta é uma pequena homenagem a tudo que vivemos, aos momentos que nos moldaram e ao fruto mais lindo do nosso amor, nosso filho.",
-  imagemFundo: "https://plus.unsplash.com/premium_photo-1673796717297-0b0085f1cb39?q=80&w=1170&auto=format",
+  imagemFundo: Backgroud, // "https://plus.unsplash.com/premium_photo-1673796717297-0b0085f1cb39?q=80&w=1170&auto=format",
   timelineEvents: [
     {
       id: 'namoro',
       titulo: "O Início do Nosso Namoro",
       data: "25 de Janeiro de 2014",
-      descricao: "Depois de 4 anos de uma linda amizade, neste dia, nosso relacionamento floresceu para algo mais. Foi o começo de uma nova e inesquecível fase em nossas vidas.",
+      descricao: "4 anos após eu te ver pela primeira vez, neste dia, nosso relacionamento floresceu para algo mais. Foi o começo de uma nova e inesquecível fase em nossas vidas.",
       imagens: [
         "../fotos/namoro/20140704_151344.jpg",
         "../fotos/namoro/20140716_135142.jpg",
@@ -105,7 +105,7 @@ const pageData = {
         "../fotos/outros/IMG_2138.JPG",
         "../fotos/outros/IMG_2144.JPG",
         "../fotos/outros/IMG_2395.JPG",
-        "../fotos/outros/IMG_2632.JPG,",
+        "../fotos/outros/IMG_2632.JPG",
     ]
   }
 };
@@ -173,7 +173,7 @@ const ImageModal = ({ modalData, onClose, onNext, onPrev }) => {
       onClick={onClose}
     >
       <button onClick={(e) => { e.stopPropagation(); onPrev(); }} className="absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Imagem anterior"><ChevronLeft className="h-8 w-8" /></button>
-      <div className="relative max-w-5xl max-h-full" onClick={(e) => e.stopPropagation()}><img key={imageUrl} src={imageUrl.replace(/w=\d+/, 'w=1200')} alt="Visualização ampliada" className="w-auto h-auto max-w-full max-h-[90vh] rounded-lg shadow-2xl animate-fade-in"/></div>
+      <div className="relative max-w-5xl max-h-full" onClick={(e) => e.stopPropagation()}><img key={imageUrl} src={imageUrl.replace(/w=\d+/, 'w=1200')} alt="Lembrança de Layla Ketna - Visualização ampliada" className="w-auto h-auto max-w-full max-h-[90vh] rounded-lg shadow-2xl animate-fade-in"/></div>
       <button onClick={(e) => { e.stopPropagation(); onNext(); }} className="absolute right-4 md:right-10 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full transition-all duration-300 shadow-lg" aria-label="Próxima imagem"><ChevronRight className="h-8 w-8" /></button>
       <button onClick={onClose} className="absolute top-4 right-4 bg-white/30 hover:bg-white/50 text-white rounded-full h-10 w-10 flex items-center justify-center text-2xl font-bold shadow-lg transition-transform transform hover:scale-110" aria-label="Fechar">&times;</button>
     </div>
@@ -214,7 +214,7 @@ const MultiItemCarousel = ({ title, text, images, onImageClick }) => {
     };
 
     return (
-        <div className="w-full bg-gray-800 py-16 md:py-24 overflow-hidden">
+        <div className="w-full min-h-screen bg-gray-800 py-16 md:py-24 overflow-hidden">
             <AnimateOnScroll className="container mx-auto px-4 text-center mb-12">
                 <h2 className="text-3xl font-bold text-white mb-4">{title}</h2>
                 <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">{text}</p>
@@ -234,10 +234,10 @@ const MultiItemCarousel = ({ title, text, images, onImageClick }) => {
                     {images.map((image, index) => (
                         <div key={index} className="flex-shrink-0 w-[45vw] sm:w-[30vw] md:w-[25vw] lg:w-[20vw] mx-2 snap-center">
                             <div 
-                                className="h-80 w-full rounded-lg shadow-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                                className="h-96 w-full rounded-lg shadow-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
                                 onClick={() => onImageClick(images, index)}
                             >
-                                <img src={image} className="h-full w-full object-cover" alt={`Momento ${index + 1}`}/>
+                                <img src={image} className="h-full w-full object-cover" alt={`Lembrança de Layla Ketna - Momento ${index + 1}`}/>
                             </div>
                         </div>
                     ))}
@@ -372,8 +372,8 @@ export default function App() {
 
   // Função para chamar a API do Gemini
   const callGeminiAPI = async (prompt) => {
-    const apiKey = ""; // Deixe em branco, será tratado pelo ambiente
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const apiKey = "AIzaSyDTAqDtyIchE8SYF4zEN2BU-IYuDtzU3k4"; // Deixe em branco, será tratado pelo ambiente
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
     const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
     try {
       const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -393,7 +393,7 @@ export default function App() {
   const handleGenerateMemory = async (evento) => {
     setLoadingStates(prev => ({ ...prev, [evento.id]: true }));
     setGeneratedContent(prev => ({...prev, [evento.id]: null}));
-    const prompt = `Você é um poeta sensível. Escreva uma curta lembrança poética e emotiva sobre o seguinte momento vivido por um casal: Título: '${evento.titulo}', Data: '${evento.data}', Descrição: '${evento.descricao}'. Foque nos sentimentos de amor, nostalgia e na importância do momento. Use uma linguagem tocante. O texto deve ter entre 2 e 3 parágrafos.`;
+    const prompt = `Você é um poeta sensível. Escreva uma curta lembrança poética e emotiva sobre o seguinte momento vivido por um casal: Título: '${evento.titulo}', Data: '${evento.data}', Descrição: '${evento.descricao}'. Foque nos sentimentos de amor, nostalgia e na importância do momento. Use uma linguagem tocante. O texto deve ter entre 1 e 2 parágrafos.`;
     const text = await callGeminiAPI(prompt);
     setGeneratedContent(prev => ({ ...prev, [evento.id]: text }));
     setLoadingStates(prev => ({ ...prev, [evento.id]: false }));
@@ -412,7 +412,7 @@ export default function App() {
 
   return (
     <>
-      <div className="bg-gray-100 font-sans text-gray-800">
+      <div className="bg-gray-100 font-sans text-gray-800 overflow-x-hidden">
         <div id="main-content" className="transition-opacity duration-1000">
             <header className="relative h-screen flex items-center justify-center text-center text-white p-4">
               <div className="absolute h-screen inset-0 bg-cover bg-center z-0" style={{ backgroundImage: `url(${pageData.imagemFundo})` }} aria-hidden="true"></div>
