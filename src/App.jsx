@@ -372,7 +372,7 @@ export default function App() {
 
   // Função para chamar a API do Gemini
   const callGeminiAPI = async (prompt) => {
-    const apiKey = "AIzaSyDTAqDtyIchE8SYF4zEN2BU-IYuDtzU3k4"; // Deixe em branco, será tratado pelo ambiente
+    const apiKey = import.meta.env.VITE_GEMINI_KEY; // Deixe em branco, será tratado pelo ambiente
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
     const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
     try {
