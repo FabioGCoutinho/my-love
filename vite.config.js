@@ -8,11 +8,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Garante que o servidor Vite escuta em todas as interfaces
     port: 5173,      // Opcional, mas boa prática para deixar explícito
-    // hmr: {
-    //   clientPort: 443, // Importante para HTTPS/WSS no CapRover
-    //   // host: 'laylaketna.myfinan.com.br', // Use seu domínio real aqui
-    //   protocol: 'wss', // Use wss para WebSocket Secure
-    // },
+    hmr: {
+      clientPort: 443, // Importante para HTTPS/WSS no CapRover
+      // host: 'laylaketna.myfinan.com.br', // Use seu domínio real aqui
+      protocol: 'wss', // Use wss para WebSocket Secure
+    },
     cors: true, // Habilita CORS para todas as origens (opcional, dependendo da sua necessidade)
     // --- O mais importante para o erro "Blocked request" ---
     fs: {
